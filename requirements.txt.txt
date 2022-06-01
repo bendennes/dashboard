@@ -1,6 +1,6 @@
 streamlit
 pandas
 numpy
-matplotlib
+matplotlib.pyplot
 matplotlib-inline
 matplotlib-base
