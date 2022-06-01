@@ -34,9 +34,10 @@ data_load_state.text('')
 
 # find all pkl files in working directory (excluding metadata file)
 # i.e. get all fnames for press release similarity dataframes
-fnames = [f for f in os.listdir() if f.endswith('pkl') and f != metadata_fname]
+df_extension = 'gz'
+fnames = [f for f in os.listdir() if f.endswith(df_extension) and f != metadata_fname]
 # generate dicts mapping id to fname and title to id (id as int for metadata dataframe indexing)
-pr_id_to_fname = {int(f.split('.')[0].split('_')[1]) : f for f in fnames} # string id ('137') : fname ('pr_137.pkl')
+pr_id_to_fname = {int(f.split('.')[0].split('_')[1]) : f for f in fnames} # string id ('137') : fname ('pr_137.pkl/gz')
 title_to_pr_id = {metadata.loc[i, 'title'] : i for i in pr_id_to_fname.keys()}
 
 with col1:
